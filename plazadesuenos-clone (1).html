@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plaza de Sueños - A Destination For Any Celebration</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+        }
+
+        nav {
+            background: #2c3e50;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            padding: 0 1rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #667eea;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23667eea" width="1200" height="600"/><circle fill="%23764ba2" opacity="0.3" cx="200" cy="100" r="150"/><circle fill="%23764ba2" opacity="0.3" cx="1000" cy="400" r="200"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 8rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #667eea;
+            text-align: center;
+        }
+
+        .event-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .event-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .event-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #764ba2;
+        }
+
+        .event-card p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .faq {
+            background: #f8f9fa;
+            padding: 4rem 2rem;
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 1.5rem;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .faq-question {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .faq-answer {
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .cta {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 1rem 3rem;
+            font-size: 1.2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        footer p {
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .section h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Plaza de Sueños</div>
+        <p style="font-size: 1.2rem; opacity: 0.9;">Your Dream Event Destination</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="home">
+        <h1>A Destination</h1>
+        <h2>For Any Celebration</h2>
+        <div class="subtitle">Weddings</div>
+    </section>
+
+    <div class="container">
+        <section class="section" id="events">
+            <h2>Our Events</h2>
+            <p style="text-align: center; font-size: 1.2rem; color: #666; margin-bottom: 2rem;">
+                We specialize in hosting a wide range of events, including weddings, corporate events, 
+                family gatherings, and private parties. Whether it's a large celebration or an intimate 
+                gathering, we have the perfect space for you.
+            </p>
+
+            <div class="event-types">
+                <div class="event-card">
+                    <h3>Weddings</h3>
+                    <p>Create unforgettable memories on your special day with our elegant wedding venues and comprehensive planning services.</p>
+                </div>
+                <div class="event-card">
+                    <h3>Corporate Events</h3>
+                    <p>Professional spaces equipped with modern amenities for conferences, meetings, and corporate celebrations.</p>
+                </div>
+                <div class="event-card">
+                    <h3>Family Gatherings</h3>
+                    <p>Warm and welcoming spaces perfect for reunions, anniversaries, and milestone celebrations with loved ones.</p>
+                </div>
+                <div class="event-card">
+                    <h3>Private Parties</h3>
+                    <p>Intimate settings for birthday parties, engagement celebrations, and other personal special occasions.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="services">
+            <h2>Our Services</h2>
+            <div class="event-types">
+                <div class="event-card">
+                    <h3>Flexible Event Spaces</h3>
+                    <p>Our venue offers customizable spaces that can be tailored to your specific requirements, from seating arrangements to decoration themes.</p>
+                </div>
+                <div class="event-card">
+                    <h3>In-House Catering</h3>
+                    <p>We provide professional catering services with a variety of menus designed to suit different tastes and dietary requirements.</p>
+                </div>
+                <div class="event-card">
+                    <h3>Ample Parking</h3>
+                    <p>Secure and easily accessible parking space available for all guests attending your event.</p>
+                </div>
+                <div class="event-card">
+                    <h3>Event Planning</h3>
+                    <p>Our experienced team works closely with you to bring your vision to life and ensure every detail is perfect.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <section class="faq" id="faq">
+        <div class="faq-container">
+            <h2 style="text-align: center; font-size: 2.5rem; color: #667eea; margin-bottom: 3rem;">Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">Can I customize the event space to match my theme?</div>
+                <div class="faq-answer">Absolutely! Our venue offers flexible event spaces that can be tailored to your specific requirements. From seating arrangements to decoration themes, we work closely with you to bring your vision to life.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Do you provide catering services?</div>
+                <div class="faq-answer">Yes, we provide in-house catering services. We offer a variety of menus designed to suit different tastes and dietary requirements. Our expert chefs will work with you to create a customized menu for your event.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Is parking available for guests?</div>
+                <div class="faq-answer">Yes, we have ample parking space available for all guests attending your event. Our parking area is secure and easily accessible.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How far in advance should I book?</div>
+                <div class="faq-answer">We recommend booking as early as possible to ensure availability. However, we do accept bookings up to a few weeks in advance, depending on the date and event type. Please contact us to check availability.</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta" id="contact">
+        <h2>Ready to Plan Your Dream Event?</h2>
+        <p>Contact us today to discuss your vision and check availability</p>
+        <a href="mailto:info@plazadesuenos.com" class="btn">Get In Touch</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Plaza de Sueños. All rights reserved.</p>
+        <p style="margin-top: 1rem; opacity: 0.8;">Your Dream Event Destination</p>
+    </footer>
+</body>
+</html>
